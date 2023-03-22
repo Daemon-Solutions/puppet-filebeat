@@ -40,6 +40,14 @@
     <%- if @seek -%>
   seek: <%= @seek %>
     <%- end -%>
+  fields_under_root: true
+  clean_field_names: true
+  move_metadata_to_field: journal
+  seek_position: cursor
+  cursor_seek_fallback: tail
+  write_cursor_state: true
+  cursor_state_file: /var/lib/filebeat/journalbeat-cursor-state
+  cursor_flush_period: 2s
     <%- if @include_matches.length > 0 -%>
   include_matches:
       <%- @include_matches.each do |match| -%>
